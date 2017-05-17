@@ -84,6 +84,12 @@ alertmanager:
     ##
     storageClass: ""
 
+    ## alertmanager data Persistent Volume with no Storage Class
+    ## If defined, no volume.beta.kubernetes.io/storage-class will be specified
+    ## Default: false
+    ##
+    noStorageClass: false
+
     ## Subdirectory of alertmanager data Persistent Volume to mount
     ## Useful if the volume's root directory is not empty
     ##
@@ -178,6 +184,8 @@ kubeStateMetrics:
     # requests:
     #   cpu: 10m
     #   memory: 16Mi
+
+  serviceAccountName: kube-state-metics
 
   service:
     annotations:
@@ -338,6 +346,12 @@ server:
     ## Default: volume.alpha.kubernetes.io/storage-class: default
     ##
     storageClass: ""
+
+    ## Prometheus server data Persistent Volume with no Storage Class
+    ## If defined, no volume.beta.kubernetes.io/storage-class will be specified
+    ## Default: false
+    ##
+    noStorageClass: false
 
     ## Subdirectory of Prometheus server data Persistent Volume to mount
     ## Useful if the volume's root directory is not empty
