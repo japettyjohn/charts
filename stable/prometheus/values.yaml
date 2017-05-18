@@ -267,6 +267,10 @@ server:
   ##
   name: server
 
+  ## Prometheus server service account name for RBAC
+  ##
+  serviceAccountName: prometheus-server
+
   ## Prometheus server container image
   ##
   image:

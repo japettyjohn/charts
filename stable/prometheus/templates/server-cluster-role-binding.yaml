@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ template "prometheus.server.fullname" . }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ .Values.server.serviceAccountName }}
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.server.serviceAccountName }}
+  namespace: {{ .Release.Namespace }}
